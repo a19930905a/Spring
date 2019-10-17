@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 利用 Spel T 引用靜態屬性 -->
+	<bean id="car" class="spring.beans.spel.Car">
+		<property name="type" value="8+9"></property>
+		<property name="price" value="#{T(java.lang.Math).random()*1000000}"></property>
+	</bean>
+
+	<bean id="person" class="spring.beans.spel.Person">
+		<property name="name" value="Alan"></property>
+		<property name="car" value="#{car}"></property>
+		<!-- 在 SPEL 使用運算符 -->
+		<property name="info" value="#{car.price>500000?'好野人':'窮逼'}"></property>
+	</bean>
+
+</beans>

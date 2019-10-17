@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Bean生命週期 -->
+	<bean id="car" class="spring.beans.time.Car" init-method="init" 
+	destroy-method="destroy">
+		<property name="brand" value="8+9carcar"></property>
+	</bean>
+	<!-- 加入後制處理器 -->
+	<bean class="spring.beans.time.beansPostProcessor"></bean>
+</beans>

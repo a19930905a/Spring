@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+
+	<bean id="helloWorld" class="spring.beans.HelloWorld">
+		<property name="name" value="Alan"></property>
+	</bean>
+	
+	<bean id="car" class="spring.beans.Car">
+		<property name="name" value="小跑車"></property>
+		<property name="company" value="8+9"></property>
+		<property name="price" value="200000"></property>
+	</bean>
+
+	<bean id="car2" class="spring.beans.Car">
+		<property name="name" value="小7車"></property>
+		<property name="company" value="黑黑"></property>
+		<property name="price" value="2500000"></property>
+	</bean>
+		<bean id="car3" class="spring.beans.Car">
+		<property name="name" value="小小車"></property>
+		<property name="company" value="白白"></property>
+		<property name="price" value="300000"></property>
+	</bean>
+	
+	
+	<bean id="person" class="spring.beans.Person">
+		<property name="name" value="Alan"></property>
+		<property name="age" value="26"></property>
+		<!-- 利用 ref 建立 bean 之間的引用關聯 -->
+		<property name="car" ref="car"></property>
+	</bean>
+	<!-- 獨立list集合 -->
+	<util:list id="87car">
+		<bean class="spring.beans.collections.Car">
+			<property name="name" value="小跑車"></property>
+			<property name="company" value="8+9"></property>
+			<property name="price" value="200000"></property>
+		</bean>
+			
+		<bean class="spring.beans.collections.Car">
+			<property name="name" value="小7車"></property>
+			<property name="company" value="黑黑"></property>
+			<property name="price" value="2500000"></property>
+		</bean>
+			<bean class="spring.beans.collections.Car">
+			<property name="name" value="小小車"></property>
+			<property name="company" value="白白"></property>
+			<property name="price" value="300000"></property>
+		</bean>
+	</util:list>
+	
+	<bean id="person_car" class="spring.beans.collections.Person">
+		<property name="name" value="Alan"></property>
+		<property name="age" value="26"></property>
+		<property name="car" ref="87car">
+		</property>
+	</bean>
+
+
+
+</beans>
