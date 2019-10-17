@@ -12,4 +12,6 @@ mysql-connector-java-5.1.48-bin
 
 c3p0-0.9.1
 
+測試環境：
 
+junit5
